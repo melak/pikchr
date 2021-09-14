@@ -1,0 +1,20 @@
+
+Diagram: [
+Box1: [
+  box "CO"
+  arrow "gRPC" aligned above
+  box "Controller" "Plugin"
+  move from last box down 0.5in
+  box "Node" "Plugin"
+  arrow from last arrow \
+    down until even with 3rd box \
+    then to 3rd box.w
+]
+Border: box thin width Box1.width+0.5in height Box1.height+0.5in at Box1.center
+text "CO \"Node\" Host" with .se at previous.ne
+]
+
+Caption: text "Headless Plugin deployment, only the CO Node hosts run Plugins. Separate," \
+    italic \
+    "split-component Plugins supply the Controller Service and the Node Service respectively." \
+    italic with .n at 0.1in below Diagram.s

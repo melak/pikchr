@@ -1,0 +1,18 @@
+
+Diagram: [
+Box1: [
+  box "CO"
+  arrow "gRPC" above
+  box "Node" "Plugin"
+]
+Border1: box thin width Box1.width+0.5in height Box1.height+0.5in at Box1.center
+text "CO \"Node\" Host" with .se at Border1.ne
+]
+
+Caption: text "Figure 4: Headless Plugin deployment, only the CO Node hosts run Plugins." \
+    italic \
+    "A Node-only Plugin component supplies only the Node Service. Its GetPluginCapabilities" \
+    italic \
+    "RPC does not report the CONTROLLER_SERVICE capability." \
+    italic \
+    italic with .n at 0.1in below Diagram.s

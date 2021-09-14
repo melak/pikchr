@@ -1,0 +1,23 @@
+    $tmarg = 0.05in
+
+Diagram: [
+B1: box "X" fit
+    move right 0.5in
+B2: box same as B1
+
+move from B1.se right (B2.sw.x - B1.se.x)/2 then down 0.75in
+
+B3: box "PUBLISHED" fit width B1.width + B2.width + B2.sw.x - B1.se.x
+A1: arrow from B1.s to (B3.nw.x + B1.width/2, B3.nw.y)
+A2: arrow from (B3.ne.x - B2.width/2, B3.ne.y) to B2.s
+
+    "Node" rjust "Publish" rjust "Volume" rjust at A1.c - ($tmarg, 0)
+    "Node" ljust "Unpublish" ljust "Volume" ljust at A2.c + ($tmarg, 0)
+]
+
+Caption: text "Figure 8: Plugins MAY forego other lifecycle steps by contraindicating them via the" \
+    italic \
+    "capabilities API. Interactions with the volumes of such plugins is reduced to NodePublishVolume" \
+    italic \
+    "and NodeUnpublishVolume" \
+    italic with .n at 0.1in below Diagram.s

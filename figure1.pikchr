@@ -1,0 +1,26 @@
+
+Diagram: [
+Box1: [
+  box "CO"
+  arrow "gRPC" above
+  box "Controller" "Plugin"
+]
+Border1: box thin width Box1.width+0.5in height Box1.height+0.5in at Box1.center
+text "CO \"Master\" Host" with .se at Border1.ne
+
+move from Box1.sw down 1in
+right
+
+Box2: [
+  box "CO"
+  arrow "gRPC" above
+  box "Node" "Plugin"
+]
+Border: box thin width Box2.width+0.5in height Box2.height+0.5in at Box2.center
+text "CO \"Node\" Host(s)" with .se at previous.ne
+]
+
+Caption: text "Figure 1: The Plugin runs on all nodes in the cluster: a centralized Controller Plugin" \
+    italic \
+    "is available on the CO master host and the Node Plugin is available on all of the CO Nodes." \
+    italic with .n at 0.1in below Diagram.s

@@ -1,0 +1,30 @@
+    $tmarg = 0.05in
+
+Diagram: [
+B0: box "X" fit
+    arrow right 1in "CreateVolume" above
+B1: box "NODE_READY" fit width 1in
+    arrow right 1in "DeleteVolume" above
+    box same as 1st box
+
+    arrow radius 0.05in \
+        from B0.w left 0.125in \
+        then down B0.height \
+        then right 0.125in+B0.width/2 \
+        then to B0.s
+
+    "Validate" ljust "Volume" ljust "Capabilities" ljust with .n at 0.125in below (B0.sw.x - 0.125in, B0.sw.y)
+
+    move to B1 then down B1.height*4
+B2: box "PUBLISHED" same as B1
+
+A1: arrow from 1/4<B1.sw, B1.se> to 1/4<B2.nw, B2.ne>
+A2: arrow from 3/4<B2.nw, B2.ne> to 3/4<B1.sw, B1.se>
+
+    "Node" rjust "Publish" rjust "Volume" rjust at A1.c - ($tmarg, 0)
+    "Node" ljust "Unpublish" ljust "Volume" ljust at A2.c + ($tmarg, 0)
+]
+
+Caption: text "Figure 6: The lifecycle of a dynamically provisioned volume, from creation to destruction," italic \
+              "when the Node Plugin advertises the STAGE_UNSTAGE_VOLUME capability." italic \
+    with .n at 0.1in below Diagram.s

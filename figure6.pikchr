@@ -1,0 +1,40 @@
+    $tmarg = 0.05in
+
+Diagram: [
+    box "X" fit
+    arrow right 1in "CreateVolume" above
+B1: box "CREATED" fit width 1in
+    arrow right 1in "DeleteVolume" above
+    box same as 1st box
+
+    move to B1 then down B1.height*4
+B2: box "NODE_READY" same as B1
+
+A1: arrow from 1/4<B1.sw, B1.se> to 1/4<B2.nw, B2.ne>
+A2: arrow from 3/4<B2.nw, B2.ne> to 3/4<B1.sw, B1.se>
+
+    "Controller" rjust "Publish" rjust "Volume" rjust at A1.c - ($tmarg, 0)
+    "Controller" ljust "Unpublish" ljust "Volume" ljust at A2.c + ($tmarg, 0)
+
+    move to B2 then down B2.height*4
+B3: box "VOL_READY" same as B2
+
+A3: arrow from 1/4<B2.sw, B2.se> to 1/4<B3.nw, B3.ne>
+A4: arrow from 3/4<B3.nw, B3.ne> to 3/4<B2.sw, B2.se>
+
+    "Node" rjust "Stage" rjust "Volume" rjust at A3.c - ($tmarg, 0)
+    "Node" ljust "Unstage" ljust "Volume" ljust at A4.c + ($tmarg, 0)
+
+    move to B3 then down B3.height*4
+B4: box "PUBLISHED" same as B3
+
+A5: arrow from 1/4<B3.sw, B3.se> to 1/4<B4.nw, B4.ne>
+A6: arrow from 3/4<B4.nw, B4.ne> to 3/4<B3.sw, B3.se>
+
+    "Node" rjust "Publish" rjust "Volume" rjust at A5.c - ($tmarg, 0)
+    "Node" ljust "Unpublish" ljust "Volume" ljust at A6.c + ($tmarg, 0)
+]
+
+Caption: text "Figure 6: The lifecycle of a dynamically provisioned volume, from creation to destruction," italic \
+              "when the Node Plugin advertises the STAGE_UNSTAGE_VOLUME capability." italic \
+    with .n at 0.1in below Diagram.s
